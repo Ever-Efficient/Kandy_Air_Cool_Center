@@ -71,7 +71,6 @@ export default function TopBar() {
           </span>
         </div>
 
-        {/* Icons */}
         <div className="flex align-items-center gap-3 sm:mr-4 text-sm justify-content-end w-full sm:w-auto">
           <div className="flex align-items-center gap-1 cursor-pointer">
             <i className="pi pi-user" />
@@ -88,7 +87,6 @@ export default function TopBar() {
         </div>
       </div>
 
-      {/* Nav Links */}
       <div
         className="flex flex-wrap justify-content-between align-items-center px-3 py-2 shadow-1 w-full gap-3"
         style={{ backgroundColor: "#DEF0FE" }}

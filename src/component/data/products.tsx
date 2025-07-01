@@ -83,7 +83,7 @@ export const productList: Product[] = [
         category: "AC Units 2",
     },
     {
-        id: 11,
+        id: 10,
         title: "Samsung Air Conditioner – 24000 BTU Inverter AC – (Wi-Fi) (SMGAR50F24DJ)",
         price: 334990,
         oldPrice: 399990,

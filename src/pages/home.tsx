@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from 'primereact/button';
 import { Checkbox } from 'primereact/checkbox';
 import { Dropdown } from 'primereact/dropdown';
@@ -6,13 +7,50 @@ import { productList } from "../component/data/products";
 import TopBar from '../component/topbar';
 import Footer from '../component/footer';
 
+type SortOption = 'default' | 'priceLowHigh' | 'priceHighLow';
+
 export default function HomePage() {
-    const products = productList;
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+    const [visibleCount, setVisibleCount] = useState(16);
+    const [sortOption, setSortOption] = useState<SortOption>('default');
 
     const categoryCounts: Record<string, number> = productList.reduce((acc, product) => {
         acc[product.category] = (acc[product.category] || 0) + 1;
         return acc;
     }, {} as Record<string, number>);
+
+    const onCategoryChange = (category: string, checked: boolean) => {
+        if (checked) {
+            setSelectedCategories([...selectedCategories, category]);
+        } else {
+            setSelectedCategories(selectedCategories.filter(c => c !== category));
+        }
+        setVisibleCount(16);
+    };
+
+    const filteredProducts = selectedCategories.length === 0
+        ? productList
+        : productList.filter(product => selectedCategories.includes(product.category));
+
+    const sortedProducts = [...filteredProducts].sort((a, b) => {
+        if (sortOption === 'priceLowHigh') {
+            return a.price - b.price;
+        }
+        if (sortOption === 'priceHighLow') {
+            return b.price - a.price;
+        }
+        return 0;
+    });
+
+    const handleSeeMore = () => {
+        setVisibleCount(prev => Math.min(prev + 8, sortedProducts.length));
+    };
+
+    const sortOptions = [
+        { label: 'Default sorting', value: 'default' },
+        { label: 'Price: Low to High', value: 'priceLowHigh' },
+        { label: 'Price: High to Low', value: 'priceHighLow' },
+    ];
 
     return (
         <div className="flex flex-column">
@@ -28,24 +66,35 @@ export default function HomePage() {
                     <h4>All Categories</h4>
                     {Object.entries(categoryCounts).map(([category, count]) => (
                         <div className="flex align-items-center gap-2 py-1" key={category}>
-                            <Checkbox inputId={category} checked={false} />
+                            <Checkbox
+                                inputId={category}
+                                checked={selectedCategories.includes(category)}
+                                onChange={e => onCategoryChange(category, e.checked ?? false)}
+                            />
                             <label htmlFor={category}>{category} ({count})</label>
                         </div>
                     ))}
-
                 </div>
 
                 <div className="col-12 md:col-10">
                     <div className="flex justify-content-end mb-3">
-                        <Dropdown value="Default sorting" options={["Default sorting"]} placeholder="Sort By" />
+                        <Dropdown
+                            value={sortOption}
+                            options={sortOptions}
+                            onChange={e => {
+                                setSortOption(e.value);
+                                setVisibleCount(16);
+                            }}
+                            placeholder="Sort By"
+                        />
                     </div>
                     <div className="grid">
-                        {products.map((prod, i) => (
+                        {sortedProducts.slice(0, visibleCount).map((prod, i) => (
                             <div key={i} className="col-12 sm:col-6 md:col-3">
                                 <Card className="shadow-1">
                                     <img
                                         src={prod.image}
-                                        alt="AC"
+                                        alt={prod.title}
                                         className="mb-2"
                                         style={{ width: '100%', height: '200px', objectFit: 'cover' }}
                                     />
@@ -67,9 +116,17 @@ export default function HomePage() {
                             </div>
                         ))}
                     </div>
-                    <div className="text-center my-4">
-                        <a href="#" className="text-blue-500">See More.....</a>
-                    </div>
+
+                    {visibleCount < sortedProducts.length && (
+                        <div className="text-center my-4">
+                            <button
+                                onClick={handleSeeMore}
+                                className="text-blue-500 cursor-pointer border-none bg-transparent font-semibold hover:text-blue-700"
+                            >
+                                See More.....
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
             <Footer />
