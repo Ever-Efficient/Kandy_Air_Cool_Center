@@ -1,19 +1,16 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // if using React Router
+import { useNavigate } from "react-router-dom";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 
 export default function TopBar() {
   const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate(); // optional for routing
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     if (!searchTerm.trim()) return;
 
-    // Option 1: Navigate to a search results page
     navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
-
-    // Option 2: You can call a filtering function or context instead
     // onSearch(searchTerm.trim());
 
     setSearchTerm("");
@@ -25,18 +22,16 @@ export default function TopBar() {
 
   return (
     <div className="flex flex-column w-full">
-      {/* Top Bar */}
       <div className="flex flex-wrap justify-content-between align-items-center px-3 py-2 gap-3 w-full">
         <div className="flex align-items-center">
           <img
-            src="/images/logo1.jpg"
+            src="/images/logo2.png"
             alt="logo"
             className="sm:ml-2"
-            style={{ width: "50px", height: "auto" }}
+            style={{ width: "100px", height: "auto" }}
           />
         </div>
 
-        {/* Search Input */}
         <div className="flex align-items-center justify-content-center w-full sm:w-auto flex-grow-1 max-w-30rem mx-auto">
           <span
             className="flex align-items-center w-full border-round overflow-hidden"
