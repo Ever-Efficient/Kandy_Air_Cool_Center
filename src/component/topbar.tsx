@@ -9,6 +9,7 @@ export default function TopBar() {
 
   const handleSearch = () => {
     if (!searchTerm.trim()) return;
+
     navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
     setSearchTerm("");
   };
@@ -20,7 +21,7 @@ export default function TopBar() {
   return (
     <div className="flex flex-column w-full">
       <div className="flex flex-wrap justify-content-between align-items-center px-3 py-2 gap-3 w-full">
-        <div className="flex align-items-center cursor-pointer" onClick={() => navigate("/")}>
+        <div className="flex align-items-center">
           <img
             src="/images/logo2.png"
             alt="logo"
@@ -64,15 +65,15 @@ export default function TopBar() {
         </div>
 
         <div className="flex align-items-center gap-3 sm:mr-4 text-sm justify-content-end w-full sm:w-auto">
-          <div className="flex align-items-center gap-1 cursor-pointer" onClick={() => navigate("/signin")}>
+          <div className="flex align-items-center gap-1 cursor-pointer">
             <i className="pi pi-user" />
             <span className="hidden sm:inline">Sign In</span>
           </div>
-          <div className="flex align-items-center gap-1 cursor-pointer" onClick={() => navigate("/favorites")}>
+          <div className="flex align-items-center gap-1 cursor-pointer">
             <i className="pi pi-heart" />
             <span className="hidden sm:inline">Favorite</span>
           </div>
-          <div className="flex align-items-center gap-1 cursor-pointer" onClick={() => navigate("/cart")}>
+          <div className="flex align-items-center gap-1 cursor-pointer">
             <i className="pi pi-shopping-cart" />
             <span className="hidden sm:inline">My Cart</span>
           </div>
@@ -83,20 +84,28 @@ export default function TopBar() {
         className="flex flex-wrap justify-content-between align-items-center px-3 py-2 shadow-1 w-full gap-3"
         style={{ backgroundColor: "#DEF0FE" }}
       >
-        <div className="flex gap-3 flex-wrap w-full sm:w-auto justify-content-center sm:justify-start text-sm">
-          <span className="px-2 py-1 cursor-pointer hover:text-blue-600" onClick={() => navigate("/")}>Home</span>
-          <span className="px-2 py-1 cursor-pointer hover:text-blue-600" onClick={() => navigate("/services")}>Services</span>
-          <span className="px-2 py-1 cursor-pointer hover:text-blue-600" onClick={() => navigate("/sale")}>Sale</span>
-          <span className="px-2 py-1 cursor-pointer hover:text-blue-600" onClick={() => navigate("/about")}>About Us</span>
-          <span className="px-2 py-1 cursor-pointer hover:text-blue-600" onClick={() => navigate("/contact")}>Contact Us</span>
+        <div className="flex gap-3 flex-wrap w-full sm:w-auto justify-content-center sm:justify-start">
+          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/")}>
+            Home
+          </span>
+          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/services")}>
+            Services
+          </span>
+          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/sale")}>
+            Sale
+          </span>
+          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/about")}>
+            About Us
+          </span>
+          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/contact")}>
+            Contact Us
+          </span>
         </div>
-
         <div className="ml-auto sm:mr-4">
           <Button
             label="Sale! 50% Off"
             className="p-button-sm"
             style={{ backgroundColor: "#000000", borderColor: "#000000" }}
-            onClick={() => navigate("/sale")}
           />
         </div>
       </div>
