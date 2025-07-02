@@ -106,6 +106,7 @@ export default function TopBar() {
             label="Sale! 50% Off"
             className="p-button-sm"
             style={{ backgroundColor: "#000000", borderColor: "#000000" }}
+            onClick={() => navigate("/sale")}
           />
         </div>
       </div>
