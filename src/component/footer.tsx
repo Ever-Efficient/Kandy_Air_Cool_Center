@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div 
+        <div
             className="p-4 mt-5 flex-column"
             style={{ backgroundColor: '#F3F6F5', color: '#000000' }}>
             <div className="grid ml-8">
@@ -34,7 +34,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="text-center text-xs mt-5">
-                Copyright ©2025 Pabada. All Rights Reserved
+                2025 © All Rights Reserved | Kandy Ari Cool
             </div>
         </div>
     )

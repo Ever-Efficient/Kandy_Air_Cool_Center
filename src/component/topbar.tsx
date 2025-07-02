@@ -90,7 +90,7 @@ export default function TopBar() {
           <a href="/" className="px-2 py-1 hover:text-blue-600 text-sm">
             Home
           </a>
-          <a href="#" className="px-2 py-1 hover:text-blue-600 text-sm">
+          <a href="/services" className="px-2 py-1 hover:text-blue-600 text-sm">
             Services
           </a>
           <a href="#" className="px-2 py-1 hover:text-blue-600 text-sm">
