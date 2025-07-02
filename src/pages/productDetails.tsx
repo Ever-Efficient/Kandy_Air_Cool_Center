@@ -9,7 +9,7 @@ import { productList } from "../component/data/products";
 import { useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-const ProductView = () => {
+export default function ProductView () {
     const { id } = useParams();
     const product = productList.find((p) => String(p.id) === id);
     const location = useLocation();
@@ -201,5 +201,3 @@ const ProductView = () => {
         </div>
     );
 };
-
-export default ProductView;

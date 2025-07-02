@@ -5,7 +5,7 @@ import { Avatar } from 'primereact/avatar';
 import TopBar from '../component/topbar';
 import Footer from '../component/footer';
 
-const ServicesPage = () => {
+export default function ServicesPage () {
     return (
         <div>
             <TopBar />
@@ -172,5 +172,3 @@ const ServicesPage = () => {
         </div>
     );
 };
-
-export default ServicesPage;

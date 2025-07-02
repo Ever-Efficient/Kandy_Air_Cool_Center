@@ -11,8 +11,6 @@ export default function TopBar() {
     if (!searchTerm.trim()) return;
 
     navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
-    // onSearch(searchTerm.trim());
-
     setSearchTerm("");
   };
 
