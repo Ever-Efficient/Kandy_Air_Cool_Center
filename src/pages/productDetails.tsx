@@ -6,10 +6,10 @@ import { Tag } from 'primereact/tag';
 import TopBar from '../component/topbar';
 import Footer from '../component/footer';
 import { productList } from "../component/data/products";
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export default function ProductView () {
+export default function ProductView() {
     const { id } = useParams();
     const product = productList.find((p) => String(p.id) === id);
     const location = useLocation();
@@ -29,7 +29,6 @@ export default function ProductView () {
         };
     }, [location]);
 
-    // Filter similar products by category, exclude current product
     const similarProducts = productList
         .filter(p => p.category === product.category && p.id !== product.id)
         .slice(0, 4);
@@ -153,31 +152,33 @@ export default function ProductView () {
             <div className="grid p-4">
                 {similarProducts.map((prod) => (
                     <div key={prod.id} className="col-12 sm:col-6 md:col-3">
-                        <Card className="shadow-1">
-                            <img
-                                src={prod.image}
-                                alt={prod.title}
-                                className="mb-2"
-                                style={{ width: '100%', height: '200px', objectFit: 'cover' }}
-                            />
-                            <p className="text-sm text-500 mb-1">Deals</p>
-                            <h5 className="text-sm">{prod.title}</h5>
-                            <div className="text-blue-600 font-semibold text-lg mb-2">
-                                Rs.{prod.price.toLocaleString('en-IN')}.00
-                            </div>
-                            <div className="flex gap-2">
-                                <Button label="Buy Now" className="p-button-sm p-button-primary w-full" />
-                                <Button
-                                    icon="pi pi-shopping-cart"
-                                    style={{
-                                        backgroundColor: '#FFFFFF',
-                                        color: '#000000',
-                                        borderColor: '#000000',
-                                        borderRadius: '6px',
-                                    }}
+                        <Link to={`/product/${prod.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            <Card className="shadow-1">
+                                <img
+                                    src={prod.image}
+                                    alt={prod.title}
+                                    className="mb-2"
+                                    style={{ width: '100%', height: '200px', objectFit: 'cover' }}
                                 />
-                            </div>
-                        </Card>
+                                <p className="text-sm text-500 mb-1">Deals</p>
+                                <h5 className="text-sm">{prod.title}</h5>
+                                <div className="text-blue-600 font-semibold text-lg mb-2">
+                                    Rs.{prod.price.toLocaleString('en-IN')}.00
+                                </div>
+                                <div className="flex gap-2">
+                                    <Button label="Buy Now" className="p-button-sm p-button-primary w-full" />
+                                    <Button
+                                        icon="pi pi-shopping-cart"
+                                        style={{
+                                            backgroundColor: '#FFFFFF',
+                                            color: '#000000',
+                                            borderColor: '#000000',
+                                            borderRadius: '6px',
+                                        }}
+                                    />
+                                </div>
+                            </Card>
+                        </Link>
                     </div>
                 ))}
             </div>
