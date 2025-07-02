@@ -10,7 +10,6 @@ const ServicesPage = () => {
         <div>
             <TopBar />
 
-            {/* Hero Section */}
             <div className="grid mb-4 px-2">
                 <div className="col-12 md:col-6">
                     <div className="relative mt-4 border-round overflow-hidden" style={{ height: '500px' }}>
@@ -31,7 +30,6 @@ const ServicesPage = () => {
                 </div>
             </div>
 
-            {/* Features */}
             <div className="flex flex-wrap justify-content-center text-center gap-3 px-3 mb-6">
                 {[
                     { icon: 'pi-truck', text: 'Free fast express delivery with tracking' },
@@ -45,7 +43,6 @@ const ServicesPage = () => {
                 ))}
             </div>
 
-            {/* Services */}
             <div className="text-center mb-4 px-2">
                 <h2 className="text-3xl font-bold">OUR SERVICES</h2>
             </div>
@@ -111,7 +108,6 @@ const ServicesPage = () => {
                 })}
             </div>
 
-            {/* Benefits */}
             <div className="border-round mb-6 px-3 py-5" style={{ backgroundColor: '#DEF0FE' }}>
                 <div className="text-center mb-5">
                     <h2 className="text-2xl font-bold">Benefits for your expediency</h2>
@@ -131,7 +127,6 @@ const ServicesPage = () => {
                 </div>
             </div>
 
-            {/* Testimonial */}
             <div className="text-center mb-6 px-2">
                 <h2 className="text-3xl font-bold">Testimonials</h2>
                 <p>Over 15,000 happy customers.</p>
@@ -153,7 +148,6 @@ const ServicesPage = () => {
                 </div>
             </div>
 
-            {/* Newsletter */}
             <div className="grid align-items-center p-2 border-round px-3" style={{ backgroundColor: '#DEF0FE' }}>
                 <div className="col-12 md:col-5">
                     <img src="/images/image1.png" alt="Products" className="w-full" />

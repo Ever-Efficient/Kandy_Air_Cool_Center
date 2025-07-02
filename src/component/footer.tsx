@@ -34,7 +34,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="text-center text-xs mt-5">
-                2025 © All Rights Reserved | Kandy Ari Cool
+                2025 © All Rights Reserved | Kandy Ari Cool Centre | Designed & Developed by EVER EFFICIENT Business Management (Pvt) Ltd.
             </div>
         </div>
     )
