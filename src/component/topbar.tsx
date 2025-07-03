@@ -74,8 +74,9 @@ export default function TopBar() {
             <span className="hidden sm:inline">Favorite</span>
           </div>
           <div className="flex align-items-center gap-1 cursor-pointer">
-            <i className="pi pi-shopping-cart" />
-            <span className="hidden sm:inline">My Cart</span>
+            <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/cart")}>
+              <i className="pi pi-shopping-cart" /> Cart
+            </span>
           </div>
         </div>
       </div>
@@ -94,10 +95,10 @@ export default function TopBar() {
           <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/sale")}>
             Sale
           </span>
-          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/about")}>
+          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/aboutus")}>
             About Us
           </span>
-          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/contact")}>
+          <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/contactus")}>
             Contact Us
           </span>
         </div>

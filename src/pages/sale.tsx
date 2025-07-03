@@ -4,11 +4,11 @@ import { Checkbox } from 'primereact/checkbox';
 import { Dropdown } from 'primereact/dropdown';
 import { Card } from 'primereact/card';
 import { discProductList } from "../component/data/discProducts";
+import { Link } from "react-router-dom";
+import { Slider } from "primereact/slider";
+
 import TopBar from '../component/topbar';
 import Footer from '../component/footer';
-import { Link } from "react-router-dom";
-import { InputNumber } from "primereact/inputnumber";
-import { Slider } from "primereact/slider";
 
 type SortOption = 'default' | 'priceLowHigh' | 'priceHighLow';
 
@@ -16,12 +16,16 @@ export default function Sale() {
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
     const [visibleCount, setVisibleCount] = useState(16);
     const [sortOption, setSortOption] = useState<SortOption>('default');
-    const [timeLeft, setTimeLeft] = useState({ hours: '00', minutes: '00', seconds: '00' });
-    const countdownEnd = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+    const [targetDate] = useState("2025-07-05T00:00");
+    const [timeLeft, setTimeLeft] = useState({
+        days: '00',
+        hours: '00',
+        minutes: '00',
+        seconds: '00'
+    });
     const [priceRange, setPriceRange] = useState<[number, number]>([0, 600000]);
     const minPrice = 0;
     const maxPrice = 600000;
-
 
     const categoryCounts: Record<string, number> = discProductList.reduce((acc, product) => {
         acc[product.category] = (acc[product.category] || 0) + 1;
@@ -68,29 +72,29 @@ export default function Sale() {
     useEffect(() => {
         const interval = setInterval(() => {
             const now = new Date().getTime();
-            const difference = countdownEnd.getTime() - now;
+            const target = new Date(targetDate).getTime();
+            const difference = target - now;
 
             if (difference > 0) {
-                const hrs = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                const mins = Math.floor((difference / 1000 / 60) % 60);
-                const secs = Math.floor((difference / 1000) % 60);
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((difference / 1000 / 60) % 60);
+                const seconds = Math.floor((difference / 1000) % 60);
 
                 setTimeLeft({
-                    hours: String(hrs).padStart(2, '0'),
-                    minutes: String(mins).padStart(2, '0'),
-                    seconds: String(secs).padStart(2, '0'),
+                    days: String(days).padStart(2, '0'),
+                    hours: String(hours).padStart(2, '0'),
+                    minutes: String(minutes).padStart(2, '0'),
+                    seconds: String(seconds).padStart(2, '0')
                 });
             } else {
                 clearInterval(interval);
-                setTimeLeft({ hours: '00', minutes: '00', seconds: '00' });
+                setTimeLeft({ days: '00', hours: '00', minutes: '00', seconds: '00' });
             }
         }, 1000);
 
         return () => clearInterval(interval);
-    }, []);
-
-
-
+    }, [targetDate]);
 
     return (
         <div className="flex flex-column">
@@ -108,11 +112,24 @@ export default function Sale() {
                     />
                     <div className="absolute top-0 left-0 w-full h-full flex align-items-center justify-content-center bg-black-alpha-50">
                         <div className="text-center text-white p-4 border-round-lg">
-                            <h2 className="text-3xl font-bold mb-2">Limited Time Offer</h2>
-                            <div className="flex gap-3 justify-content-center text-2xl font-semibold">
-                                <span>{timeLeft.hours}</span>:
-                                <span>{timeLeft.minutes}</span>:
-                                <span>{timeLeft.seconds}</span>
+                            <h2 className="text-3xl font-bold mb-4">Limited Time Offer</h2>
+                            <div className="flex gap-6 justify-content-center text-2xl font-semibold mb-4">
+                                <div className="flex flex-column items-center">
+                                    <span className="text-sm">Days</span>
+                                    <span>{timeLeft.days}</span>
+                                </div>
+                                <div className="flex flex-column items-center">
+                                    <span className="text-sm">Hours</span>
+                                    <span>{timeLeft.hours}</span>
+                                </div>
+                                <div className="flex flex-column items-center">
+                                    <span className="text-sm">Minutes</span>
+                                    <span>{timeLeft.minutes}</span>
+                                </div>
+                                <div className="flex flex-column items-center">
+                                    <span className="text-sm">Seconds</span>
+                                    <span>{timeLeft.seconds}</span>
+                                </div>
                             </div>
                             <p className="mt-2 text-sm">Hurry up! Offer ends soon.</p>
                         </div>
@@ -177,8 +194,6 @@ export default function Sale() {
                         </div>
                     ))}
                 </div>
-
-
                 <div className="col-12 md:col-10">
                     <div className="flex justify-content-end mb-3">
                         <Dropdown
