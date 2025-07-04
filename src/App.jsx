@@ -12,6 +12,7 @@ import Cart from './pages/cart';
 import Checkout from './pages/checkout';
 import Whishlist from './pages/wishlist';
 import Login from './pages/login';
+import SignUp from './pages/signup';
 
 export default function App() {
   return (
@@ -25,8 +26,9 @@ export default function App() {
       <Route path='/contactus' element={<ContactUs />} />
       <Route path='/cart' element={<Cart />} />
       <Route path='/checkout' element={<Checkout />} />
-      <Route path='/whishlist' element={<Whishlist />} />
+      <Route path='/wishlist' element={<Whishlist />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/signup' element={<SignUp />} />
     </Routes>
   );
 }

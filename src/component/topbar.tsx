@@ -66,12 +66,14 @@ export default function TopBar() {
 
         <div className="flex align-items-center gap-3 sm:mr-4 text-sm justify-content-end w-full sm:w-auto">
           <div className="flex align-items-center gap-1 cursor-pointer">
-            <i className="pi pi-user" />
-            <span className="hidden sm:inline">Sign In</span>
+            <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/signup")}>
+              <i className="pi pi-user" /> Sign In
+            </span>
           </div>
           <div className="flex align-items-center gap-1 cursor-pointer">
-            <i className="pi pi-heart" />
-            <span className="hidden sm:inline">Favorite</span>
+            <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/wishlist")}>
+              <i className="pi pi-heart" /> Favorite
+            </span>
           </div>
           <div className="flex align-items-center gap-1 cursor-pointer">
             <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/cart")}>
