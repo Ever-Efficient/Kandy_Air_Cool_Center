@@ -122,6 +122,7 @@ export default function CartPage() {
                         <div className="flex justify-content-end">
                             <Button
                                 label="Proceed to checkout"
+                                className="p-button-sm p-button-primary"
                                 style={{ backgroundColor: "#0069EB", color: "#ffffff" }}
                                 onClick={() => navigate("/checkout")}
                             />

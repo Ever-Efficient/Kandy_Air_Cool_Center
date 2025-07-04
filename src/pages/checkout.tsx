@@ -66,6 +66,7 @@ export default function CheckoutPage() {
                                         inputId="bank"
                                         name="payment"
                                         value="bank"
+                                        className='p-button-sm p-button-primary'
                                         onChange={(e) => setPayment(e.value)}
                                         checked={payment === 'bank'}
                                     />
@@ -83,6 +84,7 @@ export default function CheckoutPage() {
                                     inputId="cod"
                                     name="payment"
                                     value="cod"
+                                    className='p-button-sm p-button-primary'
                                     onChange={(e) => setPayment(e.value)}
                                     checked={payment === 'cod'}
                                 />
@@ -97,9 +99,9 @@ export default function CheckoutPage() {
                                 value={coupon}
                                 onChange={(e) => setCoupon(e.target.value)}
                             />
-                            <Button label="Apply Coupon" className="w-full sm:w-auto" />
+                            <Button label="Apply Coupon" className="p-button-sm p-button-primary w-full sm:w-auto" />
                         </div>
-                        <Button label="Place Order" className="mt-4 w-full" />
+                        <Button label="Place Order" className="p-button-sm p-button-primary mt-4 w-full" />
                     </div>
                 </div>
             </div>

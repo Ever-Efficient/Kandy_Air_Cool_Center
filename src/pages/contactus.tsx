@@ -48,7 +48,7 @@ export default function ContactUsPage() {
                         </div>
                     </div>
                     <div className="mt-4 ml-2">
-                        <Button label="Send Message" className="border-none px-6 py-2" style={{backgroundColor: '#0069EB'}}/>
+                        <Button label="Send Message" className="p-button-sm p-button-primary border-none px-6 py-2" style={{backgroundColor: '#0069EB'}}/>
                     </div>
                 </div>
                 <div className="col-12 md:col-5 flex justify-content-center align-items-start pt-2">
