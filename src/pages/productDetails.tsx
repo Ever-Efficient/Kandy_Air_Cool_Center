@@ -7,12 +7,16 @@ import TopBar from '../component/topbar';
 import Footer from '../component/footer';
 import { productList } from "../component/data/products";
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useCart } from "../component/cartContext";
+
 
 export default function ProductView() {
     const { id } = useParams();
     const product = productList.find((p) => String(p.id) === id);
     const location = useLocation();
+    const { addToCart } = useCart();
+    const [quantity, setQuantity] = useState<number>(1);
 
     if (!product) {
         return <div className="p-6 text-center text-red-500">Product not found</div>;
@@ -95,10 +99,35 @@ export default function ProductView() {
                     </div>
 
                     <div className="flex align-items-center gap-2 mb-3">
-                        <Button icon="pi pi-minus" className="p-button-rounded p-button-secondary" />
-                        <InputNumber value={2} buttonLayout="horizontal" inputClassName="w-3rem text-center" />
-                        <Button icon="pi pi-plus" className="p-button-rounded p-button-secondary" />
-                        <Button label="Buy Now" className="ml-3 p-button-primary" />
+                        <Button
+                            icon="pi pi-minus"
+                            className="p-button-rounded p-button-secondary"
+                            onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}
+                        />
+                        <InputNumber
+                            value={quantity}
+                            onValueChange={(e) => setQuantity(e.value || 1)}
+                            buttonLayout="horizontal"
+                            inputClassName="w-3rem text-center"
+                            min={1}
+                        />
+                        <Button
+                            icon="pi pi-plus"
+                            className="p-button-rounded p-button-secondary"
+                            onClick={() => setQuantity((prev) => prev + 1)}
+                        />
+                        <Button
+                            label="Add to Cart"
+                            onClick={() =>
+                                addToCart({
+                                    id: product.id,
+                                    name: product.title,
+                                    image: product.image,
+                                    price: product.price,
+                                    quantity: 1,
+                                })
+                            }
+                        />
                         <Button icon="pi pi-heart" className="p-button-outlined p-button-secondary" />
                     </div>
 
