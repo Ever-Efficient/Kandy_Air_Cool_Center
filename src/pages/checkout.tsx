@@ -90,9 +90,14 @@ export default function CheckoutPage() {
                             </div>
                         </div>
 
-                        <div className="flex mt-4 gap-2">
-                            <InputText placeholder="Coupon Code" className="flex-1" value={coupon} onChange={(e) => setCoupon(e.target.value)} />
-                            <Button label="Apply Coupon" />
+                        <div className="flex flex-column sm:flex-row mt-4 gap-3">
+                            <InputText
+                                placeholder="Coupon Code"
+                                className="flex-1"
+                                value={coupon}
+                                onChange={(e) => setCoupon(e.target.value)}
+                            />
+                            <Button label="Apply Coupon" className="w-full sm:w-auto" />
                         </div>
                         <Button label="Place Order" className="mt-4 w-full" />
                     </div>
