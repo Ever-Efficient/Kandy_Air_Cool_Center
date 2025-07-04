@@ -9,6 +9,9 @@ import Sale from './pages/sale';
 import AboutUs from './pages/aboutus';
 import ContactUs from './pages/contactus';
 import Cart from './pages/cart';
+import Checkout from './pages/checkout';
+import Whishlist from './pages/wishlist';
+import Login from './pages/login';
 
 export default function App() {
   return (
@@ -21,6 +24,9 @@ export default function App() {
       <Route path='/aboutus' element={<AboutUs />} />
       <Route path='/contactus' element={<ContactUs />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/checkout' element={<Checkout />} />
+      <Route path='/whishlist' element={<Whishlist />} />
+      <Route path='/login' element={<Login />} />
     </Routes>
   );
 }

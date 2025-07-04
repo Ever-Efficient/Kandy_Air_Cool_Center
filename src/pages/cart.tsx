@@ -2,11 +2,13 @@ import { Button } from "primereact/button";
 import { Divider } from "primereact/divider";
 import { InputNumber } from "primereact/inputnumber";
 import { useCart } from "../component/cartContext";
-import Footer from "../component/Footer";
-import TopBar from "../component/TopBar";
+import Footer from "../component/footer";
+import TopBar from "../component/topbar";
+import { useNavigate } from "react-router-dom";
 
 export default function CartPage() {
     const { cartItems, updateQuantity } = useCart();
+      const navigate = useNavigate();
 
     const handleQuantityChange = (value: number, itemId: number) => {
         if (value && value >= 1) {
@@ -82,10 +84,10 @@ export default function CartPage() {
                         onClick={() => (window.location.href = "/")}
                         style={{ backgroundColor: '#ffffff', color: '#000000', borderColor: '#000000' }}
                     />
-                    <Button
+                    {/*<Button
                         label="Update Cart"
-                        style={{ backgroundColor: '#ffffff', color: '#000000', borderColor: '#000000' }}
-                    />
+                        style={{ backgroundColor: '#ffffff', color: '#000000', borderColor: '#000000' }}s
+                    />*/}
                 </div>
 
                 {cartItems.length > 0 && (
@@ -117,6 +119,7 @@ export default function CartPage() {
                             <Button
                                 label="Proceed to checkout"
                                 style={{ backgroundColor: '#0069EB', color: '#ffffff' }}
+                                onClick={() => navigate("/checkout")}
                             />
                         </div>
 
@@ -124,7 +127,7 @@ export default function CartPage() {
                 )}
             </div>
 
-<Footer />
+            <Footer />
         </div>
     );
 }
