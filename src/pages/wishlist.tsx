@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from 'primereact/button';
 import TopBar from '../component/topbar';
 import Footer from '../component/footer';
