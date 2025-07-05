@@ -13,6 +13,7 @@ import Checkout from './pages/checkout';
 import Whishlist from './pages/wishlist';
 import Login from './pages/login';
 import SignUp from './pages/signup';
+import Error404 from './component/Error404';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
       <Route path='/wishlist' element={<Whishlist />} />
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<SignUp />} />
+      <Route path='/error404' element={<Error404 />} />
     </Routes>
   );
 }
