@@ -64,21 +64,18 @@ export default function TopBar() {
           </span>
         </div>
 
-        <div className="flex align-items-center gap-3 sm:mr-4 text-sm justify-content-end w-full sm:w-auto">
-          <div className="flex align-items-center gap-1 cursor-pointer">
-            <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/signup")}>
-              <i className="pi pi-user" /> Sign In
-            </span>
+        <div className="flex align-items-center gap-4 sm:mr-4 text-sm justify-content-end w-full sm:w-auto">
+          <div className="flex flex-column align-items-center cursor-pointer" onClick={() => navigate("/signup")}>
+            <i className="pi pi-user text-xl mb-1" />
+            <span className="text-xs hover:text-blue-600 font-bold">Sign In</span>
           </div>
-          <div className="flex align-items-center gap-1 cursor-pointer">
-            <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/wishlist")}>
-              <i className="pi pi-heart" /> Favorite
-            </span>
+          <div className="flex flex-column align-items-center cursor-pointer" onClick={() => navigate("/wishlist")}>
+            <i className="pi pi-heart text-xl mb-1" />
+            <span className="text-xs hover:text-blue-600 font-bold">Favorite</span>
           </div>
-          <div className="flex align-items-center gap-1 cursor-pointer">
-            <span className="px-2 py-1 cursor-pointer hover:text-blue-600 font-bold" onClick={() => navigate("/cart")}>
-              <i className="pi pi-shopping-cart" /> Cart
-            </span>
+          <div className="flex flex-column align-items-center cursor-pointer" onClick={() => navigate("/cart")}>
+            <i className="pi pi-shopping-cart text-xl mb-1" />
+            <span className="text-xs hover:text-blue-600 font-bold">Cart</span>
           </div>
         </div>
       </div>

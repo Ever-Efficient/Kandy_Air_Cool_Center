@@ -9,7 +9,6 @@ export default function ServicesPage () {
     return (
         <div>
             <TopBar />
-
             <div className="grid mb-4 px-2">
                 <div className="col-12 md:col-6">
                     <div className="relative mt-4 border-round overflow-hidden" style={{ height: '500px' }}>

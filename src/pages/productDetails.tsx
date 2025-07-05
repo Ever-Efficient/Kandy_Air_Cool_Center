@@ -9,13 +9,14 @@ import { productList } from "../component/data/products";
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useCart } from "../component/cartContext";
-
+import { useWishlist } from '../component/wishlistContext';
 
 export default function ProductView() {
     const { id } = useParams();
     const product = productList.find((p) => String(p.id) === id);
     const location = useLocation();
     const { addToCart } = useCart();
+    const { addToWishlist } = useWishlist();
     const [quantity, setQuantity] = useState<number>(1);
 
     if (!product) {
@@ -128,7 +129,19 @@ export default function ProductView() {
                                 })
                             }
                         />
-                        <Button icon="pi pi-heart" className="p-button-outlined p-button-secondary" />
+                        <Button
+                            icon="pi pi-heart"
+                            className="p-button-outlined p-button-secondary"
+                            onClick={() => addToWishlist({
+                                id: product.id,
+                                title: product.title,
+                                image: product.image,
+                                price: product.price,
+                                model: '',
+                                originalPrice: '',
+                                discountPrice: ''
+                            })}
+                        />
                     </div>
 
                     <div className="flex flex-column gap-2">
