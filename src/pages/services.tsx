@@ -11,7 +11,7 @@ export default function ServicesPage () {
             <TopBar />
             <div className="grid mb-4 px-2">
                 <div className="col-12 md:col-6">
-                    <div className="relative mt-4 border-round overflow-hidden" style={{ height: '500px' }}>
+                    <div className="relative mt-4 overflow-hidden" style={{ height: '500px', borderRadius: '25px' }}>
                         <img src="/images/a1.jpeg" alt="Cooling Partner" className="w-full h-full object-cover" />
                         <div className="absolute top-0 left-0 w-full h-full flex justify-content-start align-items-center bg-black-alpha-10 p-3">
                             <div className='ml-4'>
@@ -23,7 +23,7 @@ export default function ServicesPage () {
                 </div>
 
                 <div className="col-12 md:col-6">
-                    <div className="relative mt-4 border-round overflow-hidden" style={{ height: '500px' }}>
+                    <div className="relative mt-4 overflow-hidden" style={{ height: '500px', borderRadius: '25px' }}>
                         <img src="/images/a2.jpeg" alt="Cooling Partner" className="w-full h-full object-cover" />
                     </div>
                 </div>
