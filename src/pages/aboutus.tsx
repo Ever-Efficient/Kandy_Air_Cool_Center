@@ -21,7 +21,6 @@ export default function AboutUsPage() {
         <div className="flex flex-column min-h-screen">
             <TopBar />
 
-            {/* About Header Section */}
             <div className="text-center py-5 px-3 text-white" style={{ backgroundColor: '#0071FE' }}>
                 <h2 className="text-5xl md:text-4xl font-bold mt-6">ABOUT AIR COOL CENTER</h2>
                 <p className="mb-8 text-xl mx-auto" style={{ maxWidth: '800px' }}>
@@ -32,7 +31,6 @@ export default function AboutUsPage() {
                 </p>
             </div>
 
-            {/* Row 1: Image + Our Vision */}
             <div className="grid p-4 md:p-5 align-items-center mt-4">
                 <div className="col-12 md:col-6 flex justify-content-center">
                     <img
@@ -51,7 +49,6 @@ export default function AboutUsPage() {
                 </div>
             </div>
 
-            {/* Row 2: Our Mission + Puzzle Image */}
             <div className="grid p-4 md:p-5 align-items-center">
                 <div className="col-12 md:col-6 px-3">
                     <h3 className="text-5xl md:text-5xl font-bold mb-3">Our Mission</h3>
@@ -72,7 +69,6 @@ export default function AboutUsPage() {
                 </div>
             </div>
 
-            {/* Row 3: Service Image + Support Content */}
             <div className="grid p-4 md:p-5 align-items-center">
                 <div className="col-12 md:col-6 flex justify-content-center">
                     <img

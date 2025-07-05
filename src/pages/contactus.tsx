@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
-import { Divider } from "primereact/divider";
-import { Image } from "primereact/image";
 import TopBar from "../component/topbar";
 import Footer from "../component/footer";
 
