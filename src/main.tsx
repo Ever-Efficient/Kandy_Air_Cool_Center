@@ -9,7 +9,11 @@ import 'primereact/resources/themes/lara-light-blue/theme.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error("Root element with id 'root' not found");
+}
+const root = ReactDOM.createRoot(rootElement);
 root.render(
   <BrowserRouter>
     <CartProvider>
