@@ -210,44 +210,87 @@ export default function Sale() {
                         {sortedProducts.slice(0, visibleCount).map((prod, i) => (
                             <div key={i} className="col-12 sm:col-6 md:col-3">
                                 <Link to={`/product/${prod.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                    <Card className="shadow-1">
-                                        <img
-                                            src={prod.image}
-                                            alt={prod.title}
-                                            className="mb-2"
-                                            style={{ width: '100%', height: '200px', objectFit: 'cover' }}
-                                        />
-                                        <p className="text-sm text-500 mb-1">Deals</p>
-                                        <h5 className="text-sm">{prod.title}</h5>
-                                        <div className="mb-2">
-                                            <div className="flex align-items-center gap-2">
-                                                <span className="text-blue-600 font-semibold text-lg">
-                                                    Rs.{prod.price.toLocaleString('en-IN')}.00
-                                                </span>
-                                                {prod.oldPrice && (
-                                                    <span className="line-through text-500 text-sm">
-                                                        Rs.{prod.oldPrice.toLocaleString('en-IN')}.00
-                                                    </span>
-                                                )}
-                                            </div>
-                                            {prod.oldPrice && (
-                                                <span className="text-sm text-green-600 font-bold">
-                                                    {`-${Math.round(((prod.oldPrice - prod.price) / prod.oldPrice) * 100)}% OFF`}
-                                                </span>
-                                            )}
-                                        </div>
-                                        <div className="flex gap-2">
-                                            <Button label="Buy Now" className="p-button-sm p-button-primary w-full" />
-                                            <Button icon="pi pi-shopping-cart"
+                                    <div style={{ position: 'relative' }}>
+                                        {prod.oldPrice && (
+                                            <div
                                                 style={{
-                                                    backgroundColor: '#FFFFFF',
-                                                    color: '#000000',
-                                                    borderColor: '#000000',
+                                                    position: 'absolute',
+                                                    top: '10px',
+                                                    left: '10px',
+                                                    backgroundColor: '#0071FE80',
+                                                    color: '#ffffff',
+                                                    padding: '6px 12px',
                                                     borderRadius: '6px',
+                                                    fontWeight: 'bold',
+                                                    fontSize: '1rem',
+                                                    zIndex: 1
                                                 }}
+                                            >
+                                                {`-${Math.round(((prod.oldPrice - prod.price) / prod.oldPrice) * 100)}% OFF`}
+                                            </div>
+                                        )}
+                                        <Card className="shadow-1">
+                                            <img
+                                                src={prod.image}
+                                                alt={prod.title}
+                                                className="mb-2"
+                                                style={{ width: '100%', height: '200px', objectFit: 'cover' }}
                                             />
-                                        </div>
-                                    </Card>
+                                            <p className="text-sm text-500 mb-1">Deals</p>
+                                            <h5 className="text-sm">{prod.title}</h5>
+                                            <div className="mb-2">
+                                                <div className="flex align-items-center gap-2">
+                                                    <span className="text-blue-600 font-semibold text-lg">
+                                                        Rs.{prod.price.toLocaleString('en-IN')}.00
+                                                    </span>
+                                                    {prod.oldPrice && (
+                                                        <span className="line-through text-500 text-sm">
+                                                            Rs.{prod.oldPrice.toLocaleString('en-IN')}.00
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <Button
+                                                    label="Buy Now"
+                                                    className="p-button-sm w-full"
+                                                    style={{
+                                                        backgroundColor: '#0071fe',
+                                                        borderColor: '#0071fe',
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.backgroundColor = '#ffffff';
+                                                        e.currentTarget.style.borderColor = '#000000';
+                                                        e.currentTarget.style.color = '#000000';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.backgroundColor = '#0071fe';
+                                                        e.currentTarget.style.borderColor = '#0071fe';
+                                                        e.currentTarget.style.color = '#ffffff';
+                                                    }}
+                                                />
+                                                <Button
+                                                    icon="pi pi-shopping-cart"
+                                                    style={{
+                                                        backgroundColor: '#ffffff',
+                                                        color: '#000000',
+                                                        borderColor: '#000000',
+                                                        borderRadius: '6px',
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.currentTarget.style.backgroundColor = '#e0f0ff';
+                                                        e.currentTarget.style.color = '#0071fe';
+                                                        e.currentTarget.style.borderColor = '#0071fe';
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.currentTarget.style.backgroundColor = '#ffffff';
+                                                        e.currentTarget.style.color = '#000000';
+                                                        e.currentTarget.style.borderColor = '#000000';
+                                                    }}
+                                                />
+                                            </div>
+                                        </Card>
+                                    </div>
                                 </Link>
                             </div>
                         ))}

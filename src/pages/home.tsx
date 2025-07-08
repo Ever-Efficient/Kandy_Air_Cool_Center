@@ -57,7 +57,7 @@ export default function HomePage() {
     useEffect(() => {
         const savedPosition = sessionStorage.getItem('homeScrollPos');
         if (savedPosition) {
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
         }
 
         return () => {
@@ -118,13 +118,41 @@ export default function HomePage() {
                                             Rs.{prod.price.toLocaleString('en-IN')}.00
                                         </div>
                                         <div className="flex gap-2">
-                                            <Button label="Buy Now" className="p-button-sm p-button-primary w-full" />
-                                            <Button icon="pi pi-shopping-cart"
+                                            <Button
+                                                label="Buy Now"
+                                                className="p-button-sm w-full"
                                                 style={{
-                                                    backgroundColor: '#FFFFFF',
+                                                    backgroundColor: '#0071fe',
+                                                    borderColor: '#0071fe',
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.backgroundColor = '#ffffff';
+                                                    e.currentTarget.style.borderColor = '#000000';
+                                                    e.currentTarget.style.color = '#000000';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.backgroundColor = '#0071fe';
+                                                    e.currentTarget.style.borderColor = '#0071fe';
+                                                    e.currentTarget.style.color = '#ffffff';
+                                                }}
+                                            />
+                                            <Button
+                                                icon="pi pi-shopping-cart"
+                                                style={{
+                                                    backgroundColor: '#ffffff',
                                                     color: '#000000',
                                                     borderColor: '#000000',
                                                     borderRadius: '6px',
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.currentTarget.style.backgroundColor = '#e0f0ff';
+                                                    e.currentTarget.style.color = '#0071fe';
+                                                    e.currentTarget.style.borderColor = '#0071fe';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.currentTarget.style.backgroundColor = '#ffffff';
+                                                    e.currentTarget.style.color = '#000000';
+                                                    e.currentTarget.style.borderColor = '#000000';
                                                 }}
                                             />
                                         </div>
