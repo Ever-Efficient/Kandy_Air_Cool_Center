@@ -103,6 +103,20 @@ export default function ProductView() {
                         <Button
                             icon="pi pi-minus"
                             className="p-button-rounded p-button-secondary"
+                            style={{
+                                backgroundColor: '#0071fe',
+                                borderColor: '#0071fe',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#ffffff';
+                                e.currentTarget.style.borderColor = '#000000';
+                                e.currentTarget.style.color = '#000000';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = '#0071fe';
+                                e.currentTarget.style.borderColor = '#0071fe';
+                                e.currentTarget.style.color = '#ffffff';
+                            }}
                             onClick={() => setQuantity((prev) => Math.max(prev - 1, 1))}
                         />
                         <InputNumber
@@ -115,10 +129,38 @@ export default function ProductView() {
                         <Button
                             icon="pi pi-plus"
                             className="p-button-rounded p-button-secondary"
+                            style={{
+                                backgroundColor: '#0071fe',
+                                borderColor: '#0071fe',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#ffffff';
+                                e.currentTarget.style.borderColor = '#000000';
+                                e.currentTarget.style.color = '#000000';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = '#0071fe';
+                                e.currentTarget.style.borderColor = '#0071fe';
+                                e.currentTarget.style.color = '#ffffff';
+                            }}
                             onClick={() => setQuantity((prev) => prev + 1)}
                         />
                         <Button
                             label="Add to Cart"
+                            style={{
+                                backgroundColor: '#0071fe',
+                                borderColor: '#0071fe',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#ffffff';
+                                e.currentTarget.style.borderColor = '#000000';
+                                e.currentTarget.style.color = '#000000';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = '#0071fe';
+                                e.currentTarget.style.borderColor = '#0071fe';
+                                e.currentTarget.style.color = '#ffffff';
+                            }}
                             onClick={() =>
                                 addToCart({
                                     id: product.id,
@@ -132,6 +174,20 @@ export default function ProductView() {
                         <Button
                             icon="pi pi-heart"
                             className="p-button-outlined p-button-secondary"
+                            style={{
+                                backgroundColor: '#0071fe',
+                                borderColor: '#0071fe',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#ffffff';
+                                e.currentTarget.style.borderColor = '#000000';
+                                e.currentTarget.style.color = '#000000';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = '#0071fe';
+                                e.currentTarget.style.borderColor = '#0071fe';
+                                e.currentTarget.style.color = '#ffffff';
+                            }}
                             onClick={() => addToWishlist({
                                 id: product.id,
                                 title: product.title,
@@ -208,14 +264,41 @@ export default function ProductView() {
                                     Rs.{prod.price.toLocaleString('en-IN')}.00
                                 </div>
                                 <div className="flex gap-2">
-                                    <Button label="Buy Now" className="p-button-sm p-button-primary w-full" />
+                                    <Button
+                                        label="Buy Now"
+                                        className="p-button-sm w-full"
+                                        style={{
+                                            backgroundColor: '#0071fe',
+                                            borderColor: '#0071fe',
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.backgroundColor = '#ffffff';
+                                            e.currentTarget.style.borderColor = '#000000';
+                                            e.currentTarget.style.color = '#000000';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.backgroundColor = '#0071fe';
+                                            e.currentTarget.style.borderColor = '#0071fe';
+                                            e.currentTarget.style.color = '#ffffff';
+                                        }}
+                                    />
                                     <Button
                                         icon="pi pi-shopping-cart"
                                         style={{
-                                            backgroundColor: '#FFFFFF',
+                                            backgroundColor: '#ffffff',
                                             color: '#000000',
                                             borderColor: '#000000',
                                             borderRadius: '6px',
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.backgroundColor = '#e0f0ff';
+                                            e.currentTarget.style.color = '#0071fe';
+                                            e.currentTarget.style.borderColor = '#0071fe';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.backgroundColor = '#ffffff';
+                                            e.currentTarget.style.color = '#000000';
+                                            e.currentTarget.style.borderColor = '#000000';
                                         }}
                                     />
                                 </div>
